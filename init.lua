@@ -244,8 +244,8 @@ function minetest.node_dig(pos, oldnode, digger)
 end
 local place_node = minetest.item_place_node
 function minetest.item_place_node(itemstack, placer, pointed_thing)
-	place_node(itemstack, placer, pointed_thing)
 	specialties.changeXP(placer:get_player_name(), "builder", 1)
+	return place_node(itemstack, placer, pointed_thing)
 end
 minetest.register_globalstep(function(dtime)
 	if time+dtime < 10 then
